@@ -27,18 +27,18 @@ export default function ScrollBanner() {
     <>
       {/* Desktop Banner */}
       <div
-        className={`fixed bottom-4 left-1/2 w-full transform -translate-x-1/2 transition-opacity duration-500 z-40 hidden md:block ${
+        className={`fixed bottom-6 left-1/2 w-full transform -translate-x-1/2 transition-opacity duration-500 z-40 hidden md:block ${
           showBanner ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="max-w-fit mx-auto">
-          <div className="bg-white shadow-xl rounded-4xl flex items-center px-6 py-3 space-x-4">
+          <div className="bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl flex items-center px-8 py-4 space-x-6 border border-neutral-200">
             <div className="text-center">
-              <p className="text-lg font-serif">Book Your Appointment Today!</p>
+              <p className="text-lg font-inter font-medium text-neutral-800">Book Your Appointment Today!</p>
             </div>
             <button
               onClick={() => setShowForm(true)}
-              className="bg-orange-400 hover:cursor-pointer hover:bg-white hover:text-orange-400 border text-white font-semibold rounded-full px-5 py-2 flex items-center space-x-2"
+              className="btn btn-primary flex items-center space-x-2"
             >
               <FaCalendarAlt />
               <span>Request Appointment</span>
@@ -48,7 +48,7 @@ export default function ScrollBanner() {
         <div className="fixed bottom-10 right-4 z-50">
           <button
             onClick={toggleLanguageMenu}
-            className="bg-orange-500 hover:cursor-pointer text-white rounded-full p-4 shadow-5xl hover:bg-orange-600 focus:outline-none"
+            className="btn btn-secondary rounded-full p-4 shadow-xl"
             aria-label="Change Language"
           >
             <FaGlobe className="text-xl" />
@@ -56,7 +56,7 @@ export default function ScrollBanner() {
 
           {/* Language Dropdown */}
           {showLanguages && (
-            <div className="absolute bottom-16 right-0 bg-white rounded-lg shadow-xl p-3 w-48 z-50">
+            <div className="absolute bottom-16 right-0 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl p-4 w-48 z-50 border border-neutral-200">
               <LanguageSwitcher />
             </div>
           )}

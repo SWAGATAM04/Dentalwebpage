@@ -67,19 +67,19 @@ export default function Hero() {
       </div>
 
       {/* Desktop View: Form and Text */}
-      <div className="hidden absolute top-14 right-10 z-20 rounded-md md:flex md:justify-end md:items-center">
-        <div className="bg-[rgba(255,255,255,0.6)] rounded-sm p-5 z-10 w-[400px] transition-transform duration-700 ease-in-out mx-[30px]">
+      <div className="hidden absolute top-14 right-10 z-20 md:flex md:justify-end md:items-center">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl p-6 z-10 w-[400px] transition-transform duration-700 ease-in-out mx-[30px] shadow-xl border border-white/20">
           <h2
             className={`text-5xl font-medium text-end font-cinzel ${cinzel.className}`}
           >
             {images[currentIndex]?.title || ""}
           </h2>
-          <p className="text-end text-2xl font-cinzel">
+          <p className="text-end text-xl font-cinzel text-neutral-700 mb-4">
             {images[currentIndex]?.para || ""}
           </p>
           <div className="text-end">
             <Link href={images[currentIndex]?.link || "#"}>
-              <button className="bg-[#ff9f29] hover:cursor-pointer mt-4 px-4 py-2  text-white uppercase rounded-full">
+              <button className="btn btn-primary uppercase">
                 {images[currentIndex]?.buttontxt || "Read More"}
               </button>
             </Link>
@@ -89,15 +89,15 @@ export default function Hero() {
       </div>
 
       {/* Mobile View */}
-      <div className="md:hidden bg-black/70 w-full absolute bottom-0 top-0 z-20 flex flex-col items-center justify-center px-4">
-        <h1 className="text-4xl font-cinzel text-white text-center">
+      <div className="md:hidden bg-gradient-to-b from-black/50 to-black/70 w-full absolute bottom-0 top-0 z-20 flex flex-col items-center justify-center px-4">
+        <h1 className="text-4xl font-cinzel text-white text-center mb-4">
           {images[currentIndex]?.title || ""}
         </h1>
-        <h2 className="text-xl mt-5 text-white text-center">
+        <h2 className="text-xl text-white text-center mb-8">
           Limited Time Offer
         </h2>
-        <div className="w-[80%] mx-auto flex flex-col justify-center text-white">
-          <button className="bg-[#ff9f29] mt-10 text-lg font-semibold px-4 py-2 uppercase rounded-full">
+        <div className="w-[80%] mx-auto flex flex-col justify-center text-white space-y-4">
+          <button className="btn btn-accent text-lg font-semibold uppercase">
             (254) 207-0708
           </button>
           <button
@@ -105,13 +105,15 @@ export default function Hero() {
               setShowMobileForm(true);
               setShowForm(true); // <-- Add this line
             }}
-            className="bg-[#ff9f29] mt-3 text-lg font-semibold px-4 py-2 uppercase rounded-full"
+            className="btn btn-accent text-lg font-semibold uppercase"
           >
             Request appointment
           </button>
-          <p className="text-center mt-5">Our address</p>
-          <p className="text-center text-xl font-tinos">4311 S 31st Ste 145</p>
-          <p className="text-center text-xl font-tinos">Temple, TX 76502</p>
+          <div className="text-center mt-6">
+            <p className="text-white/80 mb-2">Our address</p>
+            <p className="text-xl font-inter">4311 S 31st Ste 145</p>
+            <p className="text-xl font-inter">Temple, TX 76502</p>
+          </div>
         </div>
       </div>
 

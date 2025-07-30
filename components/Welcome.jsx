@@ -6,17 +6,17 @@ const Welcome = () => {
   return (
     <>
       <div className="grid md:grid-cols-[2fr_1fr_1fr_1fr] grid-col-1 gap-5 mt-5 px-10">
-        <div className="flex justify-center items-center flex-col">
-          <h3 className="uppercase font-cinzel text-center text-2xl text-primary">
+        <div className="flex justify-center items-center flex-col card p-8">
+          <h3 className="uppercase font-cinzel text-center text-2xl text-primary mb-2">
             welcome to
           </h3>
-          <h2 className="uppercase font-cinzel text-center text-5xl ">
+          <h2 className="uppercase font-cinzel text-center text-4xl md:text-5xl mb-4">
             revital dental
           </h2>
-          <div className="text-center text-primary text-5xl  mt-[-30px]">
+          <div className="text-center text-primary text-4xl mb-6">
             . . . . .
           </div>
-          <p className="text-justify">
+          <p className="text-justify leading-relaxed mb-4">
             We are committed to providing quality healthcare to families located
             in the Temple area and treat patients of all ages. We provide
             comprehensive solutions for our patients' oral health needs.
@@ -26,23 +26,23 @@ const Welcome = () => {
             solutions that will improve their health while transforming their
             smile into something bright and beautiful
           </p>
-          <p className="text-justify pt-2">
+          <p className="text-justify leading-relaxed">
             Revital Dental is located at 4311 S 31st Ste 145, Temple, TX. We are
             currently accepting new patients, and you can schedule an
             appointment by calling 254-207-0708.
           </p>
         </div>
 
-        <div className="flex justify-between items-center flex-col">
+        <div className="flex justify-between items-center flex-col card p-6">
           <img
-            src="./service.jpg"
-            className="md:w-[50%] w-[80%] rounded-full"
+            src="/service.jpg"
+            className="md:w-[60%] w-[80%] rounded-full shadow-lg mb-4"
             alt=""
           />
-          <h3 className="uppercase font-cinzel text-center text-2xl mt-3">
+          <h3 className="uppercase font-cinzel text-center text-xl mb-4">
             Our team
           </h3>
-          <p className="text-justify">
+          <p className="text-justify text-sm leading-relaxed mb-6">
             The Doctor and Associates and the team at Revital Dental provide
             quality dental care to patients in the Temple area, focusing on a
             comprehensive approach to oral health. By treating and educating
@@ -58,22 +58,22 @@ const Welcome = () => {
           </p>
           <Link
             href="/about"
-            className="bg-primary w-[80%] text-center  text-white py-2 rounded-full mt-5"
+            className="btn btn-primary w-full"
           >
             About Us
           </Link>
         </div>
 
-        <div className="flex justify-between items-center flex-col">
+        <div className="flex justify-between items-center flex-col card p-6">
           <img
-            src="./hhh.jpg"
-            className="md:w-[50%] w-[80%] rounded-full"
+            src="/hhh.jpg"
+            className="md:w-[60%] w-[80%] rounded-full shadow-lg mb-4"
             alt=""
           />
-          <h3 className="uppercase font-cinzel text-center text-2xl mt-3">
+          <h3 className="uppercase font-cinzel text-center text-xl mb-4">
             Our Services
           </h3>
-          <p className="text-justify">
+          <p className="text-justify text-sm leading-relaxed mb-6">
             Revital Dental provides a wide variety of dental services and
             procedures to address all of our patients' dental health needs. By
             combining quality patient care with up-to-date technology, we are
@@ -87,21 +87,21 @@ const Welcome = () => {
             comprehensive approach sets patients of Revital Dental on the road
             to recovery and long term oral health.
           </p>
-          <Link href="/services" className="bg-primary text-center w-[80%] py-2 text-white rounded-full mt-5">
+          <Link href="/services" className="btn btn-primary w-full">
             View Our Services
           </Link>
         </div>
 
-        <div className="flex justify-between items-center flex-col">
+        <div className="flex justify-between items-center flex-col card p-6">
           <img
-            src="./pat.jpg"
-            className="md:w-[50%] w-[80%] rounded-full"
+            src="/pat.jpg"
+            className="md:w-[60%] w-[80%] rounded-full shadow-lg mb-4"
             alt=""
           />
-          <h3 className="uppercase font-cinzel text-center text-2xl mt-3">
+          <h3 className="uppercase font-cinzel text-center text-xl mb-4">
             Patient Information
           </h3>
-          <p className="text-justify">
+          <p className="text-justify text-sm leading-relaxed mb-6">
             When you walk into the office of Revital Dental you will be
             immediately greeted by our friendly team who are dedicated to making
             sure that you feel comfortable during your entire appointment. We
@@ -117,9 +117,9 @@ const Welcome = () => {
           </p>
           <Link
             href="patient-information"
-            className="bg-primary w-[80%] py-2 text-center text-white rounded-full mt-5"
+            className="btn btn-primary w-full"
           >
-            Patient
+            Patient Info
           </Link>
         </div>
       </div>

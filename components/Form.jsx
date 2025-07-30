@@ -42,16 +42,16 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-[400px]">
-      <div className="text-2xl text-center rounded-t-sm font-cinzel text-white bg-[#192c2f] py-3">
+    <form onSubmit={handleSubmit} className="w-[400px] card overflow-hidden">
+      <div className="text-2xl text-center font-cinzel text-white gradient-primary py-4">
         REQUEST AN APPOINTMENT
       </div>
-      <div className="text-center font-tinos rounded-b-sm text-white bg-[#284b50] px-4 py-5">
+      <div className="text-center font-inter gradient-secondary text-white px-6 py-6 space-y-4">
         <input
           type="text"
           value={fullname}
           onChange={(e) => setFullname(e.target.value)}
-          className="bg-white px-2 py-3 mb-3 text-gray-500 w-full border-b-4 border-b-white focus:outline-none focus:border-b-[#ff9f29] transition-all duration-300 ease-in-out"
+          className="form-input text-neutral-700"
           placeholder="First & Last Name (Required)"
           required
         />
@@ -60,7 +60,7 @@ const Form = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="bg-white px-2 py-3 mb-3 text-gray-500 w-full border-b-4 border-b-white focus:outline-none focus:border-b-[#ff9f29] transition-all duration-300 ease-in-out"
+          className="form-input text-neutral-700"
           placeholder="Email (Required)"
           required
         />
@@ -69,7 +69,7 @@ const Form = () => {
           type="text"
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
-          className="bg-white px-2 py-3 mb-3 text-gray-500 w-full border-b-4 border-b-white focus:outline-none focus:border-b-[#ff9f29] transition-all duration-300 ease-in-out"
+          className="form-input text-neutral-700"
           placeholder="Phone Number (Required)"
           required
         />
@@ -77,7 +77,7 @@ const Form = () => {
         <select
           value={referencedby}
           onChange={(e) => setReferencedby(e.target.value)}
-          className="w-full px-2 py-4 mb-3 bg-white text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#ff9f29] transition duration-300"
+          className="form-input text-neutral-700"
           required
         >
           <option value="">How Did You Hear About Us?</option>
@@ -93,16 +93,14 @@ const Form = () => {
 
         <button
           type="submit"
-          className="bg-[#ff9f29] hover:cursor-pointer m-5 px-4 py-2 uppercase rounded-full hover:bg-[#e5891c] transition-all duration-300 ease-in-out"
+          className="btn btn-accent uppercase mt-4"
         >
           Request Appointment
         </button>
 
-        <div className="m-2"></div>
-
         <a
           href="https://book.modento.io/revital-dental/patient-details"
-          className="bg-[#ff9f29] mt-4 px-4 py-2 uppercase rounded-full hover:bg-[#e5891c] transition-all duration-300 ease-in-out"
+          className="btn btn-accent uppercase inline-block"
         >
           express online booking
         </a>

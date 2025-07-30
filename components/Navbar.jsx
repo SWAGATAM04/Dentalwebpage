@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <nav className="bg-white  font-tinos w-[100%] top-0 z-50  py-1 fixed shadow-black shadow-sm">
+      <nav className="bg-white/95 backdrop-blur-md font-inter w-[100%] top-0 z-50 py-1 fixed shadow-lg border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
           <div className="flex justify-between items-center">
             {/* Logo */}
@@ -68,47 +68,41 @@ const Navbar = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex flex-col items-end space-y-2">
               {/* Location & Phone */}
-              <div className="flex font-tinos space-x-4 mb-4">
+              <div className="flex font-inter space-x-3 mb-4">
                 <a
                   href="https://www.google.com/maps/place/Revital+Dental/@31.0575554,-97.3734765,17z/data=!3m1!4b1!4m6!3m5!1s0x86456b77cbcefa79:0xcf1db0a8e3bdced7!8m2!3d31.0575554!4d-97.3734765!16s%2Fg%2F11q598fxmn?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary flex  text-white hover:border hover:text-primary hover:border-primary px-4 py-2 justify-center items-center text-center rounded-full text-sm font-medium transition-all duration-300 ease-in-out hover:bg-white hover:scale-101"
+                  className="btn btn-primary flex items-center space-x-2 text-sm"
                 >
-                  <div className="flex items-center space-x-2 pr-2 text-xl">
-                    <FaLocationDot />
-                  </div>
-                  <div>4311 S 31st Ste 145 Temple, TX 76502</div>
+                  <FaLocationDot className="text-lg" />
+                  <span>4311 S 31st Ste 145 Temple, TX 76502</span>
                 </a>
                 <a
                   href="tel:2542070708"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-primary border border-primary px-4 py-2 justify-center text-center rounded-full text-sm font-medium transition-all duration-300 ease-in-out hover:bg-primary hover:text-white hover:border-primary hover:scale-103"
+                  className="btn bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white flex items-center space-x-2 text-sm"
                 >
-                  <div className="flex">
-                    <div className="items-center space-x-2 pr-2 text-xl">
-                      <BiPhoneCall />
-                    </div>
-                    <div>Call Us! (254)207-0708</div>
-                  </div>
+                  <BiPhoneCall className="text-lg" />
+                  <span>Call Us! (254)207-0708</span>
                 </a>
               </div>
 
               {/* Navigation */}
-              <ul className="flex text-base font-normal text-gray-800 relative">
-                <li className="hover:text-primary transform p-3 hover:bg-gray-200 transition-all duration-300 ease-in-out cursor-pointer">
+              <ul className="flex text-sm font-medium text-neutral-700 relative">
+                <li className="hover:text-primary transform px-4 py-2 hover:bg-neutral-100 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
                   <Link href="/">Home</Link>
                 </li>
-                <li className="hover:text-primary transform p-3 hover:bg-gray-200 transition-all duration-300 ease-in-out cursor-pointer">
+                <li className="hover:text-primary transform px-4 py-2 hover:bg-neutral-100 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
                   <Link href="/about">About</Link>
                 </li>
-                <li className="hover:text-primary transform p-3 hover:bg-gray-200 transition-all duration-300 ease-in-out cursor-pointer">
+                <li className="hover:text-primary transform px-4 py-2 hover:bg-neutral-100 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
                   <Link href="/patient-information">Patient Information</Link>
                 </li>
-                <li className="relative p-2 m-1 hover:bg-gray-200">
+                <li className="relative px-4 py-2 hover:bg-neutral-100 rounded-lg">
                   <Link
-                    className="hover:text-primary transform   transition-all duration-300 ease-in-out cursor-pointer"
+                    className="hover:text-primary transform transition-all duration-200 ease-in-out cursor-pointer"
                     onMouseOver={activateservices}
                     href="/services"
                   >
@@ -117,7 +111,7 @@ const Navbar = () => {
 
                   <div
                     onMouseLeave={deactiveservices}
-                    className={`fixed top-30 left-0 w-screen bg-primary text-white py-8 z-50 border-t border-white shadow-lg transition-all duration-500  ease-in-out ${
+                    className={`fixed top-30 left-0 w-screen gradient-primary text-white py-8 z-50 shadow-xl transition-all duration-300 ease-in-out ${
                       activeserv ? "block" : "hidden"
                     }`}
                   >
@@ -139,9 +133,9 @@ const Navbar = () => {
                     </div>
                   </div>
                 </li>
-                <li className="relative p-3 hover:bg-gray-200 cursor-pointer">
+                <li className="relative px-4 py-2 hover:bg-neutral-100 rounded-lg cursor-pointer">
                   <button
-                    className="hover:text-primary transform   transition-all duration-300 ease-in-out "
+                    className="hover:text-primary transform transition-all duration-200 ease-in-out"
                     onMouseOver={activateeducation}
                   >
                     Patient Education
@@ -150,7 +144,7 @@ const Navbar = () => {
                   <div
                     onMouseLeave={deactivateeducation}
                     ref={educationRef}
-                    className={`fixed top-30 left-0 w-screen bg-primary text-white py-8 z-50 border-t border-white shadow-lg transition-all duration-300 ${
+                    className={`fixed top-30 left-0 w-screen gradient-primary text-white py-8 z-50 shadow-xl transition-all duration-300 ${
                       activeedu ? "block" : "hidden"
                     }`}
                   >
@@ -170,16 +164,16 @@ const Navbar = () => {
                     </div>
                   </div>
                 </li>
-                <li className="hover:text-primary px-2 transform p-3  hover:bg-gray-200 transition-all duration-300 ease-in-out cursor-pointer">
+                <li className="hover:text-primary transform px-4 py-2 hover:bg-neutral-100 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
                   <Link href="/cherry-financing">Cherry Financing</Link>
                 </li>
-                <li className="hover:text-primary px-2 transform p-3 hover:bg-gray-200 transition-all duration-300 ease-in-out cursor-pointer">
+                <li className="hover:text-primary transform px-4 py-2 hover:bg-neutral-100 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
                   <Link href="/smile-gallery">Smile Gallery</Link>
                 </li>
-                <li className="hover:text-primary px-2 transform p-3 hover:bg-gray-200 transition-all duration-300 ease-in-out cursor-pointer">
+                <li className="hover:text-primary transform px-4 py-2 hover:bg-neutral-100 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
                   <Link href="/reviews">Reviews</Link>
                 </li>
-                <li className="hover:text-primary px-2 transform p-3 hover:bg-gray-200 transition-all duration-300 ease-in-out cursor-pointer">
+                <li className="hover:text-primary transform px-4 py-2 hover:bg-neutral-100 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
                   <Link href="/contact">Contact Us</Link>
                 </li>
               </ul>
@@ -189,7 +183,7 @@ const Navbar = () => {
           {/* Mobile Menu */}
 
           {isOpen && (
-            <div className="fixed top-0 right-0 w-full h-screen font-tinos overflow-y-auto bg-primary z-50 text-lg font-light text-white">
+            <div className="fixed top-0 right-0 w-full h-screen font-inter overflow-y-auto gradient-primary z-50 text-lg font-light text-white">
               {/* Close Button */}
               <div className="flex justify-end p-4">
                 <button onClick={() => setIsOpen(false)}>
