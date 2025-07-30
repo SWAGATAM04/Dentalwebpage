@@ -16,10 +16,21 @@ export default function Hero() {
   const [showMobileForm, setShowMobileForm] = useState(false);
   const [showForm, setShowForm] = useState(false);
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/carousel`)
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+    
+    if (!backendUrl) {
+      console.error("NEXT_PUBLIC_BACKEND_URL is not defined in environment variables");
+      return;
+    }
+    
+    fetch(`${backendUrl}/api/carousel`)
       .then((res) => res.json())
       .then((data) => setImages(data))
-      .catch((err) => console.error("Error fetching carousel:", err));
+      .catch((err) => {
+        console.error("Error fetching carousel:", err);
+        console.error("Backend URL:", backendUrl);
+        console.error("Full URL attempted:", `${backendUrl}/api/carousel`);
+      });
   }, []);
 
   useEffect(() => {
