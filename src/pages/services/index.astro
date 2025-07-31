@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Button from '../../components/Button.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { clinicInfo } from '../../utils/clinicInfo';
+import services from '../../utils/services';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+];
+---
+
+<Layout 
+  title="Our Dental Services" 
+  description="Explore our comprehensive range of dental services at Lilac Dental in Austin, TX. From preventive care to cosmetic and restorative treatments, we provide expert dental care for the whole family."
+>
+  <Hero
+    title="Our Dental Services"
+    subtitle="Comprehensive care for all your dental needs"
+    images={["/images/hero/dental-1.jpg"]}
+    height="md"
+  />
+  
+  <Breadcrumbs items={breadcrumbItems} />
+  
+  <div class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <!-- Introduction -->
+      <section class="mb-16 max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold font-heading text-gray-800 mb-6">
+          Expert Dental Care in Austin
+        </h2>
+        <p class="text-lg text-gray-600">
+          At {clinicInfo.name}, we offer a comprehensive range of dental services to meet all your oral 
+          health needs. From routine cleanings to advanced restorative procedures, our experienced team 
+          is dedicated to providing exceptional care in a comfortable environment.
+        </p>
+      </section>
+
+      <!-- Service Categories -->
+      {Object.entries(services).map(([key, category]) => (
+        <section class="mb-16" data-aos="fade-up">
+          <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold font-heading text-gray-800 mb-4">
+              {category.title}
+            </h2>
+            <p class="text-lg text-gray-600 mb-8">{category.description}</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {category.items.map(service => (
+              <ServiceCard
+                title={service.name}
+                description={service.description}
+                icon={service.icon}
+                link={service.href}
+              />
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <!-- CTA Section -->
+      <section class="max-w-3xl mx-auto text-center mt-16" data-aos="fade-up">
+        <div class="bg-primary-50 p-8 rounded-lg">
+          <h2 class="text-2xl font-bold font-heading text-gray-800 mb-4">
+            Ready to Schedule Your Visit?
+          </h2>
+          <p class="text-gray-600 mb-8">
+            Contact us today to schedule an appointment or learn more about our services. 
+            Our team is here to help you achieve and maintain optimal oral health.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <Button
+              href={clinicInfo.booking.url}
+              text="Book Appointment"
+              variant="primary"
+              size="lg"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+            <Button
+              href={`tel:${clinicInfo.phone}`}
+              text="Call Us"
+              variant="outline"
+              size="lg"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
