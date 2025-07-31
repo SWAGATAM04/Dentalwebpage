@@ -10,10 +10,10 @@ export const clinicInfo = {
   phone: "+17379103739",
   displayPhone: "(737) 910-3739",
   email: "revitaldental24@gmail.com",
-  mapLink: "https://www.google.com/maps/place/Revital+Dental/@30.400525,-97.6750384,15z/data=!4m2!3m1!1s0x0:0xefc0b389042e9c61?sa=X&ved=1t:2428&hl=en-US&gl=us&ictx=111",
+  mapLink: "https://www.google.com/maps/place/Revital+Dental/@31.0575554,-97.3734765,15z/data=!4m6!3m5!1s0x86456b77cbcefa79:0xcf1db0a8e3bdced7!8m2!3d31.0575554!4d-97.3734765!16s%2Fg%2F11q598fxmn!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D",
   coordinates: {
-    latitude: 30.400525,
-    longitude: -97.6750384
+    latitude: 31.0575554,
+    longitude: -97.3734765
   },
   hours: {
     Monday: "9:00 AM – 5:00 PM",
