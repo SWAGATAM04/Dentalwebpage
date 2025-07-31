@@ -1,11 +1,11 @@
 export const clinicInfo = {
   name: "Revital Dental",
   address: {
-    line1: "12314 N Interstate Hwy 35 Ste 110",
-    city: "Austin",
+    line1: "4311 S 31st Ste 145",
+    city: "Temple",
     state: "TX",
-    zip: "78753",
-    full: "12314 N Interstate Hwy 35 Ste 110, Austin, TX 78753"
+    zip: "76502",
+    full: "4311 S 31st Ste 145, Temple, TX 76502"
   },
   phone: "+17379103739",
   displayPhone: "(737) 910-3739",
