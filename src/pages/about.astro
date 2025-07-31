@@ -16,7 +16,7 @@ const teamMembers = [
     name: "Dr. Suman Kondragunta",
     title: "Lead Dentist",
     image: TEAM_IMAGES.drSuman,
-    bio: "With over 11 years of full-time dental experience, Dr. Suman Kondragunta (AKA, Dr. K) attended New York University College of Dentistry where he received a Doctor of Dental Surgery in 2011. After graduating, he moved to New Mexico serving the neediest communities and created new beautiful smiles. Dr. K treats all patients with compassion and gentle dental care. Dr. K and his wife decided it was time for a change with their family expanding. They couldn't be happier with their decision to put down their roots in Texas and serving Texans.\n\nDr. K loves meditation and Tacos (Tex-Mex) food. When not in the office Dr. K enjoys spending time with his wife Dr. Yanala and his 2 children, Arnav and Avan. He also enjoys hiking, biking, and outdoor recreations and the beautiful Austin area provides this and more. He is passionate about wood carving, sculpture, and painting, and also fond of sports cars.",
+    bio: "With over 11 years of full-time dental experience, Dr. Suman Kondragunta (AKA, Dr. K) attended New York University College of Dentistry where he received a Doctor of Dental Surgery in 2011. After graduating, he moved to New Mexico serving the neediest communities and created new beautiful smiles. Dr. K treats all patients with compassion and gentle dental care. Dr. K and his wife decided it was time for a change with their family expanding. They couldn't be happier with their decision to put down their roots in Texas and serving Texans.\n\nDr. K loves meditation and Tacos (Tex-Mex) food. When not in the office Dr. K enjoys spending time with his wife Dr. Yanala and his 2 children, Arnav and Avan. He also enjoys hiking, biking, and outdoor recreations and the beautiful Temple area provides this and more. He is passionate about wood carving, sculpture, and painting, and also fond of sports cars.",
     credentials: [
       "DDS - New York University College of Dentistry, 2011",
       "11+ Years of Full-time Dental Experience",
@@ -24,32 +24,32 @@ const teamMembers = [
     ]
   },
   {
-    name: "Dr. Kiranmayee Yanala",
+    name: "Dr. Sangeeta Gantayat",
     title: "Dentist",
-    image: TEAM_IMAGES.drKiranmayee,
-    bio: "Dr Yanala graduated from Tufts University school of dental medicine in 2010. After graduation she has worked with different companies and have got the experience in the different procedures and how to treat complications. She likes to keep up with dental products and procedures which are continuously evolving. Her passion lies in aesthetic restorations and smile enhancement.\n\nDr K and Dr Yanala came to visit their friends in 2011 and immediately fell in love with Austin. The landscape and the unique culture attracted them and made them move to Austin. They have been here in Austin from 2016 and consider Austin as their home town.\n\nThey have 2 boys Arnav 12 years old and Avan 7 years old. She loves spending time with her family. On weekends or on her off days you will find her in her little garden in the back yard. She has 2 adorable young boys. During her free time, She loves to spend time with them and try to cook a new recipe.",
+    image: TEAM_IMAGES.drSangeeta, // Make sure this image key exists
+    bio: "Dr. Sangeeta Gantayat DMD (Dr.G) brings a brilliant mix of professional expertise and personal touch to her dental practice. She takes great pride in brightening up the city one smile at a time, providing her patients with top-notch dental care. Known for her compassion and patient-focused approach, she embodies the perfect blend of clinical proficiency and a caring demeanor, making dental visits a comforting and stress-free experience.\n\nDr. Sangeeta Gantayat DMD (Dr.G) brings a brilliant mix of professional expertise and personal touch to her dental practice. She takes great pride in brightening up the city one smile at a time, providing her patients with top-notch dental care. Known for her compassion and patient-focused approach, she embodies the perfect blend of clinical proficiency and a caring demeanor, making dental visits a comforting and stress-free experience.\n\nWhy she became a dentist. She comes from a family of lot of doctors and dentists and always wanted to be in the Profession to help people and the fact that dentistry helps her balance her professional and family goals attracted her to this career path. She did her dental school from GDCH Ahmedabad India in 2006 and then moved to US and accomplished her Doctor of Dental Medicine degree from Rutgers University, New Jersey 2013.\n\nBut behind this successful dentist, there's a story of a woman who is deeply committed to her family. At home, she is the affectionate mother of two lively young daughters, aged six and three. Their endless energy and ceaseless curiosity bring a vibrant spark to her day, enriching her life in countless ways.\n\nAlongside these roles, she is also a loving wife to her dashing husband, an IT professional who, with his charm and wit, never fails to bring a smile to her face. His unwavering support and shared dedication to their family provide the backbone to their harmonious work-life balance.\n\nJuggling her career and family life with grace, Dr. G believes her experiences as a mother and wife enrich her dental practice. They underscore the importance of patience, clear communication, and unconditional care — values that she brings into every patient interaction. In her free time, Dr. G indulges in her passion for gardening and cooking. Gardening is a stress buster and helps her connect to nature. Cooking different foods and spending time with friends helps her rejuvenate.\n\nDr. G extends a warm invitation to join her dental family including her and her warm and caring dental team, where you will receive top-tier dental care coupled with a personal touch. In her capable hands, you can expect nothing less than a comfortable, rewarding experience.",
     credentials: [
-      "DDS - Tufts University School of Dental Medicine, 2010",
-      "Specializes in Aesthetic Restorations",
-      "Expertise in Smile Enhancement"
+    "DMD - Rutgers University, New Jersey, 2013",
+    "BDS - Government Dental College, Ahmedabad, India, 2006",
+    "Specializes in Compassionate and Family-Friendly Dental Care"
     ]
   }
 ];
 ---
 
-<Layout 
-  title="About Us | Meet Our Team" 
-  description="Meet our experienced dental team at Lilac Dental in Austin, TX. Led by Dr. Suman Kondragunta and Dr. Kiranmayee Yanala, we provide compassionate and comprehensive dental care."
+<Layout
+  title="About Us | Meet Our Team"
+  description="Meet our experienced dental team at Revital Dental in Temple, TX. Led by Dr. Suman Kondragunta and Dr. Kiranmayee Yanala, we provide compassionate and comprehensive dental care."
 >
   <Hero
-    title="About Lilac Dental"
+    title="About Revital Dental"
     subtitle="Committed to Excellence in Dental Care"
     images={[HERO_IMAGES.dental3]}
     height="sm"
   />
-  
+
   <Breadcrumbs items={breadcrumbItems} />
-  
+
   <div class="py-16 bg-white">
     <div class="container mx-auto px-4">
       <!-- Our Philosophy -->
@@ -58,22 +58,22 @@ const teamMembers = [
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <p class="text-lg text-gray-600 mb-6">
-              At {clinicInfo.name}, we believe that exceptional dental care goes beyond technical expertise. 
-              Our philosophy centers on creating a welcoming, comfortable environment where patients feel 
-              heard, respected, and cared for. We take the time to understand each patient's unique needs 
+              At {clinicInfo.name}, we believe that exceptional dental care goes beyond technical expertise.
+              Our philosophy centers on creating a welcoming, comfortable environment where patients feel
+              heard, respected, and cared for. We take the time to understand each patient's unique needs
               and concerns, developing personalized treatment plans that align with their goals and lifestyle.
             </p>
             <p class="text-lg text-gray-600">
-              Our commitment to excellence drives us to stay current with the latest advancements in 
-              dental technology and techniques, ensuring our patients receive the highest standard of care. 
-              We focus on preventive care and patient education, empowering our patients to maintain 
+              Our commitment to excellence drives us to stay current with the latest advancements in
+              dental technology and techniques, ensuring our patients receive the highest standard of care.
+              We focus on preventive care and patient education, empowering our patients to maintain
               optimal oral health between visits.
             </p>
           </div>
           <div class="relative aspect-[4/3] w-full">
-            <img 
-              src={HERO_IMAGES.dental1.src} 
-              alt="Modern dental office" 
+            <img
+              src={HERO_IMAGES.dental1.src}
+              alt="Modern dental office"
               class="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
               width={HERO_IMAGES.dental1.width}
               height={HERO_IMAGES.dental1.height}
@@ -86,17 +86,17 @@ const teamMembers = [
       <section class="mb-16" data-aos="fade-up">
         <h2 class="text-3xl font-bold font-heading text-gray-800 mb-6">Meet Our Team</h2>
         <p class="text-lg text-gray-600 mb-12 max-w-3xl">
-          Our experienced team of dental professionals is dedicated to providing you with the 
+          Our experienced team of dental professionals is dedicated to providing you with the
           highest quality care in a comfortable and welcoming environment.
         </p>
-        
+
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {teamMembers.map(member => (
             <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
               <div class="relative aspect-[4/3]">
-                <img 
+                <img
                   src={member.image.src}
-                  alt={member.name} 
+                  alt={member.name}
                   class="absolute inset-0 w-full h-full object-cover object-center"
                   width={member.image.width}
                   height={member.image.height}
@@ -130,8 +130,8 @@ const teamMembers = [
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <p class="text-lg text-gray-600 mb-6">
-              Our state-of-the-art dental office is designed with your comfort in mind. We've created 
-              a warm, welcoming environment equipped with the latest dental technology to provide you 
+              Our state-of-the-art dental office is designed with your comfort in mind. We've created
+              a warm, welcoming environment equipped with the latest dental technology to provide you
               with the best possible care experience.
             </p>
             <div class="space-y-4">
@@ -165,9 +165,9 @@ const teamMembers = [
             </div>
           </div>
           <div class="relative aspect-[4/3] w-full">
-            <img 
+            <img
               src={HERO_IMAGES.dental2.src}
-              alt="Lilac Dental office interior" 
+              alt="Revital Dental office interior"
               class="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
               width={HERO_IMAGES.dental2.width}
               height={HERO_IMAGES.dental2.height}

@@ -1,5 +1,5 @@
 export const clinicInfo = {
-  name: "Lilac Dental",
+  name: "Revital Dental",
   address: {
     line1: "12314 N Interstate Hwy 35 Ste 110",
     city: "Austin",
@@ -9,8 +9,8 @@ export const clinicInfo = {
   },
   phone: "+17379103739",
   displayPhone: "(737) 910-3739",
-  email: "lilacdental24@gmail.com",
-  mapLink: "https://www.google.com/maps/place/Lilac+Dental/@30.400525,-97.6750384,15z/data=!4m2!3m1!1s0x0:0xefc0b389042e9c61?sa=X&ved=1t:2428&hl=en-US&gl=us&ictx=111",
+  email: "revitaldental24@gmail.com",
+  mapLink: "https://www.google.com/maps/place/Revital+Dental/@30.400525,-97.6750384,15z/data=!4m2!3m1!1s0x0:0xefc0b389042e9c61?sa=X&ved=1t:2428&hl=en-US&gl=us&ictx=111",
   coordinates: {
     latitude: 30.400525,
     longitude: -97.6750384
@@ -25,12 +25,12 @@ export const clinicInfo = {
     Sunday: "Closed"
   },
   social: {
-    facebook: "https://www.facebook.com/LilacDental/",
-    twitter: "https://x.com/lilacdentaltx",
-    yelp: "https://www.yelp.com/biz/lilac-dental-austin"
+    facebook: "https://www.facebook.com/RevitalDental/",
+    twitter: "https://x.com/revitaldentaltx",
+    yelp: "https://www.yelp.com/biz/revital-dental-austin"
   },
   booking: {
-    url: "https://book.modento.io/lilac-dental/patient-details"
+    url: "https://book.modento.io/revital-dental/patient-details"
   }
 };
 

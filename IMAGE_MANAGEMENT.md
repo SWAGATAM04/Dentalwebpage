@@ -1,4 +1,4 @@
-# Image Management Guide for Lilac Dental Website
+# Image Management Guide for Revital Dental Website
 
 ## Directory Structure
 

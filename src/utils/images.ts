@@ -11,7 +11,8 @@ import dental6 from '../assets/images/hero/dental-6.jpg';
 
 // Team Photos
 import drSuman from '../assets/images/about/dr-suman.jpg';
-import drKiranmayee from '../assets/images/about/dr-kiranmayee.jpg';
+import drSangeeta from '../assets/images/about/dr-drSangeeta.jpg';
+
 
 // Gallery Images
 import whiteningCase1Before from '../assets/images/gallery/whitening-case1-before.jpg';
@@ -32,7 +33,7 @@ export const HERO_IMAGES = {
 
 export const TEAM_IMAGES = {
   drSuman,
-  drKiranmayee
+  drSangeeta
 } as const;
 
 export const GALLERY_IMAGES = {

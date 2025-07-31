@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   integrations: [tailwind(), sitemap(), react()],
-  site: 'https://lilacdentalaustintx.com',
+  site: 'https://revitaldentalaustintx.com',
   output: 'static',
   server: {
     host: '0.0.0.0'
