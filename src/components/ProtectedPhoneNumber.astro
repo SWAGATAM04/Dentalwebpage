@@ -1,0 +1,118 @@
+---
+import { clinicInfo } from '../utils/clinicInfo';
+
+export interface Props {
+  variant?: 'simple' | 'click-reveal' | 'captcha' | 'time-delay' | 'session';
+  showIcon?: boolean;
+  className?: string;
+}
+
+const { 
+  variant = 'simple', 
+  showIcon = true, 
+  className = '' 
+} = Astro.props;
+---
+
+<div class={`protected-phone ${className}`} data-variant={variant}>
+  {variant === 'simple' && (
+    <a 
+      href={`tel:${clinicInfo.phone}`} 
+      class="text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200"
+      data-phone-click
+    >
+      {showIcon && <span class="mr-1">📞</span>}
+      {clinicInfo.displayPhone}
+    </a>
+  )}
+  
+  {variant === 'click-reveal' && (
+    <div id="click-reveal-phone"></div>
+  )}
+  
+  {variant === 'captcha' && (
+    <div id="captcha-phone"></div>
+  )}
+  
+  {variant === 'time-delay' && (
+    <div id="time-delay-phone"></div>
+  )}
+  
+  {variant === 'session' && (
+    <div id="session-phone"></div>
+  )}
+</div>
+
+<script>
+  import { PhoneProtection, AdvancedPhoneProtection, PhoneCallAnalytics } from '../utils/phoneProtection';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const phoneContainers = document.querySelectorAll('.protected-phone');
+    
+    phoneContainers.forEach(container => {
+      const variant = container.getAttribute('data-variant');
+      const phone = '+17379103739'; // Your actual phone number
+      
+      switch (variant) {
+        case 'click-reveal':
+          const clickRevealDiv = container.querySelector('#click-reveal-phone');
+          if (clickRevealDiv) {
+            const element = PhoneProtection.createClickToReveal(phone, '📞 Click to Show Phone');
+            clickRevealDiv.appendChild(element);
+          }
+          break;
+          
+        case 'captcha':
+          const captchaDiv = container.querySelector('#captcha-phone');
+          if (captchaDiv) {
+            PhoneProtection.createCaptchaProtectedPhone(phone).then(element => {
+              captchaDiv.appendChild(element);
+            });
+          }
+          break;
+          
+        case 'time-delay':
+          const timeDelayDiv = container.querySelector('#time-delay-phone');
+          if (timeDelayDiv) {
+            const element = AdvancedPhoneProtection.createTimeDelayedReveal(phone, 5);
+            timeDelayDiv.appendChild(element);
+          }
+          break;
+          
+        case 'session':
+          const sessionDiv = container.querySelector('#session-phone');
+          if (sessionDiv) {
+            const element = AdvancedPhoneProtection.createSessionProtectedPhone(phone);
+            sessionDiv.appendChild(element);
+          }
+          break;
+      }
+    });
+    
+    // Track all phone clicks
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      if (target.hasAttribute('data-phone-click') || target.closest('[data-phone-click]')) {
+        PhoneCallAnalytics.trackPhoneClick('+17379103739');
+      }
+    });
+    
+    // Monitor call patterns
+    PhoneCallAnalytics.monitorCallPatterns();
+  });
+</script>
+
+<style>
+  .phone-reveal-container button {
+    transition: all 0.2s ease;
+  }
+  
+  .phone-reveal-container button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .captcha-phone-container {
+    max-width: 300px;
+  }
+</style>

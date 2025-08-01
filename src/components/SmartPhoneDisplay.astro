@@ -1,0 +1,148 @@
+---
+import { clinicInfo } from '../utils/clinicInfo';
+
+export interface Props {
+  variant?: 'protected' | 'business-hours' | 'callback-only' | 'geo-restricted';
+  showAlternatives?: boolean;
+}
+
+const { variant = 'protected', showAlternatives = true } = Astro.props;
+---
+
+<div class="smart-phone-container">
+  {variant === 'protected' && (
+    <div id="protected-phone-display"></div>
+  )}
+  
+  {variant === 'business-hours' && (
+    <div id="business-hours-phone"></div>
+  )}
+  
+  {variant === 'callback-only' && (
+    <div id="callback-request"></div>
+  )}
+  
+  {variant === 'geo-restricted' && (
+    <div id="geo-phone"></div>
+  )}
+  
+  {showAlternatives && (
+    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+      <h4 class="font-bold text-gray-800 mb-2">Prefer Not to Call?</h4>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <a 
+          href="/contact" 
+          class="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm"
+        >
+          ✉️ Send Message
+        </a>
+        <a 
+          href={clinicInfo.booking.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm"
+        >
+          📅 Book Online
+        </a>
+        <button 
+          onclick="showLiveChat()" 
+          class="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm text-left"
+        >
+          💬 Live Chat
+        </button>
+        <a 
+          href={`mailto:${clinicInfo.email}`}
+          class="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm"
+        >
+          📧 Email Us
+        </a>
+      </div>
+    </div>
+  )}
+</div>
+
+<script>
+  import { PhoneProtection, AdvancedPhoneProtection, CallBlockingStrategies } from '../utils/phoneProtection';
+  import { PhoneCallAnalytics } from '../utils/callBlockingStrategies';
+  
+  document.addEventListener('DOMContentLoaded', async () => {
+    const phone = '+17379103739';
+    const displayPhone = '(737) 910-3739';
+    
+    // Protected phone display
+    const protectedDiv = document.getElementById('protected-phone-display');
+    if (protectedDiv) {
+      const element = await PhoneProtection.createCaptchaProtectedPhone(phone);
+      protectedDiv.appendChild(element);
+    }
+    
+    // Business hours aware display
+    const businessHoursDiv = document.getElementById('business-hours-phone');
+    if (businessHoursDiv) {
+      const element = CallBlockingStrategies.createBusinessHoursPhone(displayPhone);
+      businessHoursDiv.appendChild(element);
+    }
+    
+    // Callback request system
+    const callbackDiv = document.getElementById('callback-request');
+    if (callbackDiv) {
+      const element = CallBlockingStrategies.createCallbackRequest();
+      callbackDiv.appendChild(element);
+    }
+    
+    // Geographic restriction
+    const geoDiv = document.getElementById('geo-phone');
+    if (geoDiv) {
+      const isAllowed = await CallBlockingStrategies.checkGeographicAccess();
+      
+      if (isAllowed) {
+        geoDiv.innerHTML = `
+          <a href="tel:${phone}" class="text-primary-600 hover:text-primary-700 font-medium">
+            📞 ${displayPhone}
+          </a>
+        `;
+      } else {
+        geoDiv.innerHTML = `
+          <div class="text-gray-600">
+            📞 Phone available for local patients
+            <button onclick="requestPhoneAccess()" class="ml-2 text-primary-600 hover:text-primary-700 text-sm underline">
+              Request Access
+            </button>
+          </div>
+        `;
+      }
+    }
+  });
+  
+  // Global functions
+  window.showLiveChat = function() {
+    alert('Live chat feature would be implemented here');
+  };
+  
+  window.showBusinessHours = function() {
+    const hours = {
+      'Monday': '9:00 AM – 5:00 PM',
+      'Tuesday': 'Closed',
+      'Wednesday': '9:00 AM – 5:00 PM',
+      'Thursday': '9:00 AM – 5:00 PM',
+      'Friday': '10:00 AM – 2:00 PM',
+      'Saturday': '9:00 AM – 2:00 PM',
+      'Sunday': 'Closed'
+    };
+    
+    let hoursText = 'Business Hours:\n';
+    Object.entries(hours).forEach(([day, time]) => {
+      hoursText += `${day}: ${time}\n`;
+    });
+    
+    alert(hoursText);
+  };
+  
+  window.requestPhoneAccess = function() {
+    const reason = prompt('Please tell us why you need to contact us:');
+    if (reason && reason.length > 10) {
+      alert('Thank you. Please use our contact form and we will reach out to you.');
+      window.location.href = '/contact';
+    }
+  };
+</script>
