@@ -330,6 +330,32 @@ Add your analytics code to `src/layouts/Layout.astro`:
 
 ## 🔧 Development
 
+### Bot Prevention & Security
+
+The website includes comprehensive bot prevention measures:
+
+#### **Multi-Layer Protection:**
+- **reCAPTCHA v3**: Google's invisible reCAPTCHA for form submissions
+- **Rate Limiting**: Prevents rapid-fire requests from the same IP
+- **Bot Detection**: Analyzes user agents, browser features, and behavior patterns
+- **Honeypot Fields**: Hidden form fields that catch automated submissions
+- **Interaction Tracking**: Ensures users interact with the page before submitting forms
+- **Challenge Questions**: Simple math problems to verify human users
+- **Timing Analysis**: Detects suspiciously fast form submissions
+
+#### **Implementation Files:**
+- `src/utils/botPrevention.ts` - Core bot detection logic
+- `src/utils/enhancedForms.ts` - Enhanced form submission with security
+- `src/components/EnhancedContactForm.astro` - Secure contact form
+- `src/middleware/botProtection.ts` - Server-side protection middleware
+- `src/utils/analytics.ts` - Bot activity monitoring and analytics
+
+#### **Monitoring & Analytics:**
+- Real-time bot detection tracking
+- Suspicious activity logging
+- Rate limiting statistics
+- User interaction pattern analysis
+
 ### Available Scripts
 
 ```bash
@@ -337,6 +363,21 @@ npm run dev          # Start development server
 npm run build        # Build for production
 npm run preview      # Preview production build
 npm run astro        # Run Astro CLI commands
+```
+
+### Security Configuration
+
+Update environment variables for enhanced security:
+
+```env
+# reCAPTCHA Configuration (Required)
+PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key_here
+
+# Lambda Endpoint for Form Submissions (Required)
+PUBLIC_LAMBDA_ENDPOINT=your_lambda_endpoint_url
+
+# Optional: Analytics Endpoint
+PUBLIC_ANALYTICS_ENDPOINT=your_analytics_endpoint
 ```
 
 ### Code Quality
