@@ -10,12 +10,14 @@ phases:
   build:
     commands:
       - echo "Running Astro build..."
-      - "npm run build 2>&1 | tee build.log"
-      - "echo Build exit code: $?"
-      - "echo Build log contents:"
-      - cat build.log
+      - npm run build
+      - echo "Build completed, checking output:"
+      - pwd
       - ls -la
+      - echo "Looking for build output:"
+      - find . -maxdepth 2 -type d
+      - echo "Checking if dist exists:"
+      - test -d dist && echo "dist directory found" || echo "dist directory not found"
 artifacts:
   files:
     - '**/*'
-  base-directory: 'dist'
