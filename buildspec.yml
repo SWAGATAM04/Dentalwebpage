@@ -16,7 +16,8 @@ phases:
   build:
     commands:
       - echo "Running build..."
-      - npm run build || (echo "Build failed, checking logs..." && npm run build --verbose)
+      - export NODE_OPTIONS="--max-old-space-size=4096"
+      - npm run build
       - ls -la
 artifacts:
   files:
