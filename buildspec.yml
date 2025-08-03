@@ -7,8 +7,17 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - npm ci
- 
+  pre_build:
+    commands:
+      - echo "Checking environment..."
+      - node --version
+      - npm --version
+      - cat package.json | grep -A 5 '"scripts"'
+  build:
+    commands:
+      - echo "Running build..."
+      - npm run build || (echo "Build failed, checking logs..." && npm run build --verbose)
+      - ls -la
 artifacts:
   files:
     - '**/*'
-  base-directory: 'dist'
