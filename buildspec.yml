@@ -3,14 +3,15 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
-  pre_build:
+      nodejs: 18  # Specify your project's Node.js version
     commands:
-      - npm install
+      - echo "Installing dependencies..."
+      - npm ci
   build:
     commands:
+      - echo "Running build script..."
       - npm run build
-
-  post_build:
-    commands:
-      - echo "App started with PID $(cat app.pid)"
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'build' # Or 'dist', 'out', etc., depending on your build output folder
