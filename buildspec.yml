@@ -7,18 +7,12 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - npm ci
-  pre_build:
-    commands:
-      - echo "Checking environment..."
-      - node --version
-      - npm --version
-      - cat package.json | grep -A 5 '"scripts"'
   build:
     commands:
-      - echo "Running build..."
-      - export NODE_OPTIONS="--max-old-space-size=4096"
+      - echo "Running Astro build..."
       - npm run build
       - ls -la
 artifacts:
   files:
     - '**/*'
+  base-directory: 'dist'
