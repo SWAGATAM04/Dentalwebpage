@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  pre_build:
+    commands:
+      - pkill -f "npm run dev" || true
+      - npm install
+  build:
+    commands:
+      - nohup npm run dev > app.log 2>&1 &
+      - echo $! > app.pid
+  post_build:
+    commands:
+      - echo "App started with PID $(cat app.pid)"
