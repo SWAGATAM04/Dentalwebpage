@@ -3,15 +3,17 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18  # Specify your project's Node.js version
+      # This tells CodeBuild to use the latest Node.js 20, which meets the requirement.
+      # You could also use '18' to get the latest 18.x version.
+      nodejs: 20
     commands:
       - echo "Installing dependencies..."
-      - npm ci
+      - npm install
   build:
     commands:
-      - echo "Running build script..."
+      - echo "Running build..."
       - npm run build
 artifacts:
   files:
     - '**/*'
-  base-directory: 'build' # Or 'dist', 'out', etc., depending on your build output folder
+  base-directory: 'dist' # Or 'build', depending on your project's output folder
