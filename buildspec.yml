@@ -10,7 +10,10 @@ phases:
   build:
     commands:
       - echo "Running Astro build..."
-      - npm run build
+      - npm run build 2>&1 | tee build.log
+      - echo "Build exit code: $?"
+      - echo "Build log contents:"
+      - cat build.log
       - ls -la
 artifacts:
   files:
