@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo "Using Docker to run Node.js 20"
-      - docker pull public.ecr.aws/docker/library/node:20-alpine
+      - docker pull public.ecr.aws/docker/library/node:20-alpine 
   build:
     commands:
       - docker run --rm -v $PWD:/app -w /app public.ecr.aws/docker/library/node:20-alpine sh -c "npm ci && npm run build"
@@ -13,10 +13,13 @@ phases:
     commands:
       - echo "Verifying appspec.yml exists"
       - ls -la appspec.yml
-      - echo "Build completed - files ready for CodeDeploy"
-
+      - echo "Creating zip archive"
+      - zip -r app.zip . -x ".git/*" "node_modules/*"
+      - echo "Verifying zip contents"
+      - unzip -l app.zip | head -20
+      - echo "Uploading zip to S3"
+      - aws s3 cp app.zip s3://codepipeline-dentalweb/app.zip
+      - echo "Deployment completed"
 artifacts:
   files:
-    - '**/*'
-  name: BuildArtifacts
-
+    - app.zip
