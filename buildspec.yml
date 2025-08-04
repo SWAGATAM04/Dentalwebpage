@@ -4,8 +4,8 @@ phases:
   install:
     commands:
       - echo "Installing Node.js 20..."
-      - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-      - apt-get install -y nodejs
+      - curl -fsSL https://rpm.nodesource.com/setup_20.x | bash -
+      - yum install -y nodejs
       - node --version
       - npm --version
       - echo "Installing dependencies..."
