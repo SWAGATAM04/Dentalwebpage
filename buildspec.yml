@@ -2,22 +2,19 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 20
     commands:
+      - echo "Installing Node.js 20..."
+      - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+      - apt-get install -y nodejs
+      - node --version
+      - npm --version
       - echo "Installing dependencies..."
       - npm ci
-      - node -v 
   build:
     commands:
       - echo "Running Astro build..."
       - npm run build
       - echo "Build completed, checking output:"
-      - pwd
-      - ls -la
-      - echo "Looking for build output:"
-      - find . -maxdepth 2 -type d
-      - echo "Checking if dist exists:"
       - test -d dist && echo "dist directory found" || echo "dist directory not found"
 artifacts:
   files:
