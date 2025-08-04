@@ -1,21 +1,13 @@
 version: 0.2
 
 phases:
-  install:
+  pre_build:
     commands:
-      - curl -fsSL https://fnm.vercel.app/install | bash
-      - export PATH="$HOME/.local/share/fnm:$PATH"
-      - eval "$(fnm env)"
-      - fnm install 20
-      - fnm use 20
-      - node --version
-      - npm ci
+      - echo "Using Docker to run Node.js 20"
+      - docker pull node:20-alpine
   build:
     commands:
-      - export PATH="$HOME/.local/share/fnm:$PATH"
-      - eval "$(fnm env)"
-      - fnm use 20
-      - npm run build
+      - docker run --rm -v $PWD:/app -w /app node:20-alpine sh -c "npm ci && npm run build"
       - test -d dist && echo "dist directory found" || echo "dist directory not found"
 artifacts:
   files:
