@@ -2,11 +2,6 @@
 echo "Installing dependencies..."
 cd /var/www/html/app
 
-# Check if package.json exists
-if [ ! -f "package.json" ]; then
-    echo "Error: package.json not found"
-    exit 1
-fi
 
 # Install Node.js 18 if not present
 if ! command -v node &> /dev/null; then
