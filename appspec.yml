@@ -9,6 +9,9 @@ hooks:
       timeout: 300
       runas: root
   BeforeInstall:
+    - location: lcm/cleanup.sh
+      timeout: 300
+      runas: root
     - location: lcm/install_dependencies.sh
       timeout: 300
       runas: root
@@ -16,3 +19,4 @@ hooks:
     - location: lcm/start_server.sh
       timeout: 300
       runas: root
+
