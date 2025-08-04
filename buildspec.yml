@@ -3,22 +3,19 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing Node.js 20 via NVM..."
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-      - . ~/.nvm/nvm.sh
-      - nvm install 20.18.0
-      - nvm alias default 20.18.0
+      - curl -fsSL https://fnm.vercel.app/install | bash
+      - export PATH="$HOME/.local/share/fnm:$PATH"
+      - eval "$(fnm env)"
+      - fnm install 20
+      - fnm use 20
       - node --version
-      - npm --version
-      - echo "Installing dependencies..."
       - npm ci
   build:
     commands:
-      - . ~/.nvm/nvm.sh
-      - nvm use default
-      - echo "Running Astro build..."
+      - export PATH="$HOME/.local/share/fnm:$PATH"
+      - eval "$(fnm env)"
+      - fnm use 20
       - npm run build
-      - echo "Build completed, checking output:"
       - test -d dist && echo "dist directory found" || echo "dist directory not found"
 artifacts:
   files:
