@@ -1,12 +1,10 @@
 #!/bin/bash
-cd /var/www/html/app
-# Install Node.js if not present
+echo "Installing dependencies..."
+# Install Node.js 18 if not present
 if ! command -v node &> /dev/null; then
-    curl -fsSL https://fnm.vercel.app/install | bash
-    export PATH="$HOME/.local/share/fnm:$PATH"
-    eval "$(fnm env)"
-    fnm install 18
-    fnm use 18
+    curl -sL https://rpm.nodesource.com/setup_18.x | bash -
+    yum install -y nodejs
 fi
-# Dependencies already included in zip from CodeBuild
+node --version
+npm --version
 echo "Dependencies ready from build artifacts"
