@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo "Using Docker to run Node.js 20"
-      - docker pull node:20-alpine
+      - docker pull public.ecr.aws/docker/library/node:20-alpine 
   build:
     commands:
       - docker run --rm -v $PWD:/app -w /app public.ecr.aws/docker/library/node:20-alpine sh -c "npm ci && npm run build"
