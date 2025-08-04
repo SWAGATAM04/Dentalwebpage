@@ -1,8 +1,9 @@
 #!/bin/bash
 echo "Starting application..."
-# We're already in the extracted app directory
+# Change to the deployment directory
+cd /var/www/html/app
 echo "Current directory: $(pwd)"
-ls -la
+ls -la package.json
 # Start npm run dev in background
 nohup npm run dev > /var/log/app.log 2>&1 &
 echo $! > /var/run/app.pid
