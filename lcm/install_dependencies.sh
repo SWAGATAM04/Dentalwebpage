@@ -9,5 +9,9 @@ node --version
 npm --version
 # Install npm dependencies
 cd /var/www/html/app
-npm ci
+npm install
 echo "Dependencies installed"
+npm install -g @astrojs/cli
+
+echo "astro cli install"
+
