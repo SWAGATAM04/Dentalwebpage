@@ -3,13 +3,21 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 20
     commands:
       - echo "Installing dependencies..."
-      - npm install 
-  pre_build:
+      - npm ci
+  build:
     commands:
-      - export NODE_OPTIONS="--max-old-space-size=4096"
-      - export NODE_ENV=production
- 
-
+      - echo "Running Astro build..."
+      - npm run build
+      - echo "Build completed, checking output:"
+      - pwd
+      - ls -la
+      - echo "Looking for build output:"
+      - find . -maxdepth 2 -type d
+      - echo "Checking if dist exists:"
+      - test -d dist && echo "dist directory found" || echo "dist directory not found"
+artifacts:
+  files:
+    - '**/*'
