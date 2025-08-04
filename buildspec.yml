@@ -9,6 +9,11 @@ phases:
     commands:
       - docker run --rm -v $PWD:/app -w /app node:20-alpine sh -c "npm ci && npm run build"
       - test -d dist && echo "dist directory found" || echo "dist directory not found"
+  post_build:
+    commands:
+      - echo "Deploying entire repo to S3"
+      - aws s3 sync . s3://codepipeline-dentalweb/ --delete --exclude ".git/*"
+      - echo "Deployment completed"
 artifacts:
   files:
     - '**/*'
