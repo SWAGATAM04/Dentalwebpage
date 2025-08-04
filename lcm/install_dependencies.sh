@@ -8,5 +8,6 @@ fi
 node --version
 npm --version
 # Install npm dependencies
+cd /var/www/html/app
 npm ci
 echo "Dependencies installed"
