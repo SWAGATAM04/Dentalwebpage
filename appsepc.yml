@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html/app
+hooks:
+  ApplicationStop:
+    - location: lcm/stop_server.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: lcm/install_dependencies.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: lcm/start_server.sh
+      timeout: 300
+      runas: root
