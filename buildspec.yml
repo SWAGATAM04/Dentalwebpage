@@ -3,15 +3,19 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing Node.js 20..."
-      - curl -fsSL https://rpm.nodesource.com/setup_20.x | bash -
-      - yum install -y nodejs
+      - echo "Installing Node.js 20 via NVM..."
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+      - . ~/.nvm/nvm.sh
+      - nvm install 20.18.0
+      - nvm alias default 20.18.0
       - node --version
       - npm --version
       - echo "Installing dependencies..."
       - npm ci
   build:
     commands:
+      - . ~/.nvm/nvm.sh
+      - nvm use default
       - echo "Running Astro build..."
       - npm run build
       - echo "Build completed, checking output:"
