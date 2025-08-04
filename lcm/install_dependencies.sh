@@ -7,4 +7,6 @@ if ! command -v node &> /dev/null; then
 fi
 node --version
 npm --version
-echo "Dependencies ready from build artifacts"
+# Install npm dependencies
+npm ci
+echo "Dependencies installed"

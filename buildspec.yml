@@ -11,8 +11,14 @@ phases:
       - test -d dist && echo "dist directory found" || echo "dist directory not found"
   post_build:
     commands:
+      - echo "Making scripts executable"
+      - chmod +x scripts/*.sh
+      - echo "Verifying appspec.yml exists"
+      - ls -la appspec.yml
       - echo "Creating zip archive"
-      - zip -r app.zip . -x ".git/*"
+      - zip -r app.zip . -x ".git/*" "node_modules/*"
+      - echo "Verifying zip contents"
+      - unzip -l app.zip | head -20
       - echo "Uploading zip to S3"
       - aws s3 cp app.zip s3://codepipeline-dentalweb/app.zip
       - echo "Deployment completed"
