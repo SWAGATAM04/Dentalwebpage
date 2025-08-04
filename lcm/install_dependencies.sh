@@ -12,6 +12,6 @@ fi
 
 # Use npm ci for faster, reliable installs
 npm ci
-npm install -g @astrojs/cli
+#npm install -g @astrojs/cli
 echo "Dependencies installed"
 
