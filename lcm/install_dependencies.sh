@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "Installing dependencies..."
+mkdir -p /var/www/html/app
 cd /var/www/html/app
 
 
