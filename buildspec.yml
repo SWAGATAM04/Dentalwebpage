@@ -11,9 +11,11 @@ phases:
       - test -d dist && echo "dist directory found" || echo "dist directory not found"
   post_build:
     commands:
-      - echo "Deploying entire repo to S3"
-      - aws s3 sync . s3://codepipeline-dentalweb/ --delete --exclude ".git/*"
+      - echo "Creating zip archive"
+      - zip -r app.zip . -x ".git/*"
+      - echo "Uploading zip to S3"
+      - aws s3 cp app.zip s3://codepipeline-dentalweb/app.zip
       - echo "Deployment completed"
 artifacts:
   files:
-    - '**/*'
+    - app.zip
