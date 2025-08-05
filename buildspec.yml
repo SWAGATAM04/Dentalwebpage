@@ -15,8 +15,8 @@ phases:
       - ls -la appspec.yml
       - echo "Build completed - files ready for CodeDeploy"
       - export AWS_REGION=us-east-1
-      - aws s3 sync dist/ s3://revitaldentaltempletx-website --delete --profile revital
-      - aws cloudfront create-invalidation --distribution-id E1K8M61U3FDC27 --paths "/*" --profile revital
+      - aws s3 sync dist/ s3://revitaldentaltempletx-website --delete
+      - aws cloudfront create-invalidation --distribution-id E1K8M61U3FDC27 --paths "/*"
 
 artifacts:
   files:
